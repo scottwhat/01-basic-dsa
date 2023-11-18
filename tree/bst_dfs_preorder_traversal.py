@@ -3,6 +3,9 @@
 def preorder(root):
     if not root:
         return    
+    #the do portion 
     print(root.val)
     preorder(root.left)
     preorder(root.right)
+    
+    

@@ -15,7 +15,7 @@ def insert(root, key):
     return root
 
 def inorder(root):
-    if not root:
+    if root is None:
         return    
     inorder(root.left)
     print(root.val)
@@ -32,3 +32,19 @@ for key in keys:
 
 # Test the inorder function
 inorder(root)
+
+
+def preorder(root):
+    if not root:
+        return    
+    #the do portion 
+    print(root.val)
+    preorder(root.left)
+    preorder(root.right)
+    
+def postorder(root):
+    if not root:
+        return    
+    postorder(root.left)
+    postorder(root.right)
+    print(root.val)

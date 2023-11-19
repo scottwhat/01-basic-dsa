@@ -1,4 +1,5 @@
 # https://neetcode.io/courses/dsa-for-beginners/22
+
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         res = []
@@ -16,7 +17,17 @@ class Solution:
             dfs(i + 1)
             # decision NOT to include nums[i]
             subset.pop()
+            # q: what does SOLID stand for? 
+            
             dfs(i + 1)
 
         dfs(0)
         return res
+
+
+        # @copilot:what does solid stand for in programming?
+        
+    
+    
+    
+    

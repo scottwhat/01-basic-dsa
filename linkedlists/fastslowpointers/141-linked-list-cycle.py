@@ -1,18 +1,16 @@
 
 
- class Solution:
-     
-     def hasCycle(self, head):
-         
-         slow, fast = head, head 
-         
-         while fast and fast.next:
+class Solution:
+    def hasCycle(self, head):
+        slow, fast = head, head
+
+        while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
-            
+
             if slow == fast:
                 return True
-        
-        
-        #if no cycle
+
+        # if no cycle
         return False
+

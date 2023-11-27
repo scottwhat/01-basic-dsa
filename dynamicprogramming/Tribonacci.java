@@ -1,9 +1,11 @@
 package dynamicprogramming;
+
 import java.util.HashMap;
 
-public class Fib {
+public class Tribonacci {
+
     public static void main(String[] args) {
-        System.out.println(Fib.fib(5));    
+        System.out.println(Fib.fib(7));    
     }
 
     public static int fib(int n) {
@@ -19,10 +21,9 @@ public class Fib {
         if (memo.containsKey(n)) {
             return memo.get(n);
         }
-        int result = fib(n - 1, memo) + fib(n - 2, memo);
+        int result = fib(n - 1, memo) + fib(n - 2, memo) + fib(n - 3, memo);
         memo.put(n, result);
         return result;
     }
-
-  
+    
 }

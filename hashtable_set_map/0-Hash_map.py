@@ -1,51 +1,87 @@
-class HashTable:
-    def __init__(self, size=7):
-        self.data_map = [None] * size
+class Pair:
+    def __init__(self, key, val):
+        self.key = key
+        self.val = val
 
-    def __hash(self, key):
-        my_hash = 0
-        for letter in key:
-            my_hash = (my_hash + ord(letter) * 23) % len(self.data_map)
-        return my_hash
 
-    def print_table(self):
-        for i, val in enumerate(self.data_map):
-            print(i, ": ", val)
+class HashMap:
+    def __init__(self):
+        self.size = 0
+        self.capacity = 2
+        self.map = [None, None]
 
-    def set_item(self, key, value):
-        index = self.__hash(key)
-        if self.data_map[index] == None:
-            self.data_map[index] = []
-        self.data_map[index].append([key, value])
+    def hash(self, key):
+        index = 0
+        for c in key:
+            index += ord(c)
+        return index % self.capacity
 
-    def get_item(self, key):
-        index = self.__hash(key)
-        if self.data_map[index] is not None:
-            for i in range(len(self.data_map[index])):
-                if self.data_map[index][i][0] == key:
-                    return self.data_map[index][i][1]
+    def get(self, key):
+        index = self.hash(key)
+
+        while self.map[index] != None:
+            if self.map[index].key == key:
+                return self.map[index].val
+            index += 1
+            index = index % self.capacity
         return None
 
-    def keys(self):
-        all_keys = []
-        for i in range(len(self.data_map)):
-            if self.data_map[i] is not None:
-                for j in range(len(self.data_map[i])):
-                    all_keys.append(self.data_map[i][j][0])
-        return all_keys
+    def put(self, key, val):
+        index = self.hash(key)
+
+        while True:
+            if self.map[index] == None:
+                self.map[index] = Pair(key, val)
+                self.size += 1                if self.size >= self.capacity // 2:                   self.rehash()
+                return
+            elif self.map[index].key == key:
+                self.map[index].val = val
+                return
+
+            index += 1
+            index = index % self.capacity
+
+    def remove(self, key):
+        if not self.get(key):
+            return
+
+        index = self.hash(key)
+        while True:
+            if self.map[index].key == key:
+                # Removing an element using open-addressing actually causes a bug,
+                # because we may create a hole in the list, and our get() may
+                # stop searching early when it reaches this hole.
+                self.map[index] = None
+                self.size -= 1
+                return
+            index += 1
+            index = index % self.capacity
+
+    def rehash(self):
+        self.capacity = 2 * self.capacity
+        newMap = []
+        for i in range(self.capacity):
+            newMap.append(None)
+
+        oldMap = self.map
+        self.map = newMap
+        self.size = 0
+        for pair in oldMap:
+            if pair:
+                self.put(pair.key, pair.val)
+
+    def print(self):
+        for pair in self.map:
+            if pair:
+                print(pair.key, pair.val)
 
 
-my_hash_table = HashTable()
+my_hash_map = HashMap()
 
-my_hash_table.set_item('bolts', 1400)
-my_hash_table.set_item('washers', 50)
-my_hash_table.set_item('lumber', 70)
 
-print(my_hash_table.keys())
+my_hash_map.put('butts', 500)
+my_hash_map.put('butts', 32)
+my_hash_map.put('tits', 6)
 
-"""
-    EXPECTED OUTPUT:
-    ----------------
-    ['bolts', 'washers', 'lumber']
 
-"""
+my_hash_map.print()

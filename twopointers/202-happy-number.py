@@ -6,35 +6,38 @@
 # if final = 1 = happy
 
 
-class Solution:
 
-    # should actually use a linekd list cycle
-    def isHappy(self, n) -> bool:
-        visit = set()
-        # memory 0(n)
 
-        while n not in visit:
-            visit.add(n)
+class Solution: 
+# class Solution:
 
-            n = self.sumOfSquares(n)
+#     # should actually use a linekd list cycle
+#     def isHappy(self, n) -> bool:
+#         visit = set()
+#         # memory 0(n)
 
-            if n == 1:
-                return True
+#         while n not in visit:
+#             visit.add(n)
 
-        # n was already in the set, return false
-        return False
+#             n = self.sumOfSquares(n)
 
-    def sumOfSquares(self, numInput: int) -> int:
+#             if n == 1:
+#                 return True
 
-        # make the num iterable
-        # return sum(int(digit)**2 for digit in str(numInput))
+#         # n was already in the set, return false
+#         return False
 
-        output = 0
+#     def sumOfSquares(self, numInput: int) -> int:
 
-        while n:
-            digit = n % 10
-            digit = digit ** 2
-            output += digit
-            n = n // 10
+#         # make the num iterable
+#         # return sum(int(digit)**2 for digit in str(numInput))
 
-        return output
+#         output = 0
+
+#         while n:
+#             digit = n % 10
+#             digit = digit ** 2
+#             output += digit
+#             n = n // 10
+
+#         return output

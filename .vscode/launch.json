@@ -5,6 +5,27 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Nums30",
+            "request": "launch",
+            "mainClass": "patterns.Nums30",
+            "projectName": "01-basic-dsa_62c627aa"
+        },
+        {
+            "type": "java",
+            "name": "Stars28",
+            "request": "launch",
+            "mainClass": "patterns.Stars28",
+            "projectName": "01-basic-dsa_62c627aa"
+        },
+        {
+            "type": "java",
+            "name": "StarsFive",
+            "request": "launch",
+            "mainClass": "patterns.StarsFive",
+            "projectName": "01-basic-dsa_62c627aa"
+        },
+        {
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",

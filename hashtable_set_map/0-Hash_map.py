@@ -1,3 +1,6 @@
+
+## open addressing hashmap, if collison at hash it searches for the next empty slot s
+
 class Pair:
     def __init__(self, key, val):
         self.key = key

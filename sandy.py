@@ -1,6 +1,5 @@
 
-my_list = [4,2,6,5,1,3]
-for i in range(len(my_list), 0, -1):
-    print(i)
-
-
+# Creating a set from a list
+my_list = set()
+set.insert(1)
+print(my_list)

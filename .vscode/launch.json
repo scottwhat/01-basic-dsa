@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "trees.binarytree.javabst.Main",
+            "projectName": "01-basic-dsa_62c627aa"
+        },
+        {
+            "type": "java",
             "name": "Nums30",
             "request": "launch",
             "mainClass": "patterns.Nums30",

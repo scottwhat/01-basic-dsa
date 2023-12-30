@@ -11,46 +11,42 @@
 # You must write a solution in O(log(m * n)) time complexity.
 
 # DO A DOUBLE binary search
-# check the last element of each row to see if its larger than the target value, 
+# check the last element of each row to see if its larger than the target value,
 
 
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        
+
         ROWS, COLS = len(matrix), len(matrix[0])
-        
-        top, bot = 0, ROWS - 1 
+
+        top, bot = 0, ROWS - 1
         while top <= bot:
-            row = (top + bot ) // 2
+            row = (top + bot) // 2
             if target > matrix[row][-1]:
-                #going down the rows 
+                # going down the rows
                 top = row + 1
             elif target < matrix[row][0]:
                 bot = row - 1
-                #if nothing is true , target value was within the matrix[row][0]
-            else: 
+                # if nothing is true , target value was within the matrix[row][0]
+            else:
                 break
-            
-        if not (top <=  bot):
+
+        if not (top <= bot):
             return False
-        
-        #second bin search, on row 
+
+        # second bin search, on row
         row = (top + bot) // 2
         l, r = 0, COLS - 1
-        
+
         while l <= r:
             m = (l + r) // 2
             if target > matrix[row][m]:
                 l = m + 1
-            
+
             elif target < matrix[row][m]:
                 r = m - 1
-            
+
             else:
                 return True
-            
+
             return False
-                
-        
-        
-        

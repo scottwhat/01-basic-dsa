@@ -8,6 +8,7 @@ class GraphNode:
 
 # Or use a HashMap
 adjList = { "A": [], "B": [] }
+#modify the adjacency list s
 
 # Given directed edges, build an adjacency list
 edges = [["A", "B"], ["B", "C"], ["B", "E"], ["C", "E"], ["E", "D"]]
@@ -47,7 +48,7 @@ def bfs(node, target, adjList):
 
     while queue:
         for i in range(len(queue)):
-            curr = queue.popleft()
+            curr = queue.popleft()  
             if curr == target:
                 return length
 

@@ -19,7 +19,7 @@ class MyHashSet:
 
         # iterate to end of the LL and insert
         while cur.next:
-
+            
             # checkfor duplicates and return if dupe.
             if cur.next.key == key:
                 return

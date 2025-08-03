@@ -1,4 +1,5 @@
 class Solution(object):
+
     def removeDuplicates(self, nums):
         # use two pointers, left stays as the recent unique element
         # right pointer searches for next

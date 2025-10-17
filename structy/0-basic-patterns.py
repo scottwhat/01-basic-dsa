@@ -3,18 +3,15 @@
 # 2) Sorting Algorithms
 # 3) Binary Trees, Traversals and BST Recursive/Iterative Implementation
 # 4) Graphs / Grids
-# 5) Heaps & Priority Queues
-
+# 5) Heaps & Priority Queue
 from collections import deque
 print(
     '******************************************************************************')
 print('Backtracking Solutions:')
 '''
 
-This is the first batch I am solving:
-
-Combinations
-Permutations I
+This is the first batch I am solving
+CombinationsI
 Permutations II
 Subsets 1
 Subsets II

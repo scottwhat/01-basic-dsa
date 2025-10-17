@@ -18,7 +18,7 @@
 #     else:
 #         return None
     
-# print(find_second_maximum([9, 2, 3, 6]))
+print(find_second_maximum([9, 2, 3, 6]))
 
 
 #two loops 
